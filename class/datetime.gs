@@ -10,8 +10,16 @@ class Datetime {
   constructor(date = new Date()) {
     /** @type {Date} */
     this.date = new Date(date);
-    /** @type {Date} */
-    this.tomorrow = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+  }
+
+  /**
+   * 翌日 0:00 の Datetime オブジェクトを取得するメソッド
+   * @return {Datetime} Datetime オブジェクト
+   */
+  getDtTomorrow() {
+    const tomorrow = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate() + 1)
+    const dtTomorrow = new Datetime(tomorrow);
+    return dtTomorrow;
   }
 
   /**
@@ -37,5 +45,3 @@ class Datetime {
   }
 
 }
-
-const DATETIME = new Datetime();

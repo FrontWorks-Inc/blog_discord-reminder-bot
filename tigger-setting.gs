@@ -6,5 +6,6 @@
 function setTrigger() {
   const triggerName = 'runReminderScript';
   const trigger = new Trigger(triggerName);
-  trigger.setTimesForTomorrow();
+  const datetime = new Datetime(); 
+  trigger.setTimesForTomorrow(datetime);
 }

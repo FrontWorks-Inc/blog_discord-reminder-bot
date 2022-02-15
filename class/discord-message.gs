@@ -17,10 +17,10 @@ class DiscordMessage {
 
   /**
    * すべての対象レコードのメッセージを送信するメソッド
+   * @param {Date} date - Date オブジェクト
    */
-  sendAll() {
-    const records = this.sheet.getTargetRecords(DT.date);
-    console.log(records);
+  sendAll(date) {
+    const records = this.sheet.getTargetRecords(date);
     records.forEach(record => this.send(record));
   }
 
@@ -33,7 +33,6 @@ class DiscordMessage {
     const webhookUrl = this.getWebhookUrl(channelName);
     const message = record[this.sheet.getColumnIndexByHeaderName(SHEET_INFO.TASK.COLUMN.MESSAGE)];
     const params = this.getParams(message);
-    console.log(message);
     UrlFetchApp.fetch(webhookUrl, params);
   }
 

@@ -11,7 +11,7 @@ class Sheet {
   constructor(sheet = SS.getActiveSheet(), headerRows = 1) {
     /** @type {SpreadsheetApp.Sheet} */
     this.sheet = sheet;
-    /** @type {SpreadsheetApp.Sheet} */
+    /** @type {number} */
     this.headerRows = headerRows;
   }
 

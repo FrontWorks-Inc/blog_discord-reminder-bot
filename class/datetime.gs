@@ -3,13 +3,13 @@
 class Datetime {
 
   /**
-   * 日付に関するコンストラクタ
+   * 日時に関するコンストラクタ
    * @constructor
-   * @param {Date} date - 対象となる日付
+   * @param {Date|string|number} param - Date オブジェクトでインスタンス生成可能な引数
    */
-  constructor(date = new Date()) {
+  constructor(param = new Date()) {
     /** @type {Date} */
-    this.date = new Date(date);
+    this.date = new Date(param);
   }
 
   /**
@@ -17,8 +17,11 @@ class Datetime {
    * @return {Datetime} Datetime オブジェクト
    */
   getDtTomorrow() {
-    const tomorrow = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate() + 1)
-    const dtTomorrow = new Datetime(tomorrow);
+    const dtTomorrow = new Datetime(
+      this.date.getFullYear(),
+      this.date.getMonth(),
+      this.date.getDate() + 1
+    );
     return dtTomorrow;
   }
 
